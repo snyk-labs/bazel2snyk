@@ -1,23 +1,11 @@
 from dataclasses import dataclass
 from typing import List
-import logging
-
-logger = logging.getLogger(__name__)
-FORMAT = "[%(filename)s:%(lineno)4s - %(funcName)s ] %(message)s"
-logging.basicConfig(format=FORMAT)
-logger.setLevel(logging.INFO)
-
-#@dataclass
-#class BazelNodeToSnykNodeMapping:
-#    bazel_node_id: str
-#    snyk_node_id: str
+from bazel2snyk.common import logger
 
 class DepGraph(object):
     def __init__(
         self,
         pkg_manager_name: str,
-        debug: bool = False,
-        bazel_query_output: str = None
     ):
         self.pkg_manager_name = pkg_manager_name
         self.meta_pkg_id = "meta-common-packages@meta"
