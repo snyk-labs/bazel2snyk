@@ -15,8 +15,7 @@ from bazel2snyk import (
     BazelXmlParser
 )
 from bazel2snyk.bazel import (
-    BazelNodeType,
-    package_sources
+    BazelNodeType
 )
 
 #set up logging
@@ -26,9 +25,6 @@ logging.basicConfig(format=FORMAT)
 logger.setLevel(logging.WARN)
 
 app = typer.Typer(add_completion=False)
-
-# for use of the allowable package sources as choices for CLI
-BazelPackageSource = Enum('PackageSource', {value:key for key, value in package_sources.items()})
 
 # globals
 g={}
@@ -40,6 +36,10 @@ g['DEPGRAPH_BASE_MONITOR_URL'] = "/monitor/dep-graph?org="
 # version is required by Snyk depGraph API
 # setting bazel targets version as "bazel"
 g['BAZEL_TARGET_VERSION_STRING'] = "bazel"
+
+# set allowable package sources
+g['allowable_package_sources'] = ["maven", "pip"]
+BazelPackageSource = Enum('PackageSource', g['allowable_package_sources'])
 
 # set default package source
 g['package_source'] = "maven"
@@ -55,6 +55,16 @@ g['processed_nodes_temp'] = []
 g['dep_path_counts'] = {}
 g['target_path_counts'] = {}
 
+def package_source_callback(value: str):
+    """
+    Check if specified package-source is a valid value
+    """
+    typer.echo(f"package_source: {value}")
+    if value not in g['allowable_package_sources']:
+        raise typer.BadParameter(f"Allowable values are [maven, pip], you entered: {value}")
+    
+    return value
+
 @app.callback(no_args_is_help=True)
 def main(ctx: typer.Context,
     bazel_deps_xml: str = typer.Option(
@@ -67,11 +77,18 @@ def main(ctx: typer.Context,
         envvar="BAZEL_TARGET",
         help="Name of the target, e.g. //store/api:main"
     ),
-    package_source: BazelPackageSource = typer.Option(
+    package_source: str = typer.Option(
         "maven",
+        callback=package_source_callback,
         case_sensitive=False,
         envvar="PACKAGE_SOURCE",
         help="Name of the target, e.g. //store/api:main"
+    ),
+    maven_repo_alias: str = typer.Option(
+        None,
+        case_sensitive=False,
+        envvar="MAVEN_REPO_ALIAS",
+        help="specify if you refer to @maven repository with another name, e.g. @maven_alternate_repo"
     ),
     debug: bool = typer.Option(
         False,
@@ -100,13 +117,17 @@ def main(ctx: typer.Context,
     logger.debug(f"{prune=}")
     logger.debug(f"{prune_all=}")
 
-    g['package_source'] = package_source.value
+    g['package_source'] = package_source
+    logger.debug(f"{g['package_source']=}")
 
     g['bazel_deps_xml'] = load_file(bazel_deps_xml)
 
     g['dep_graph']: DepGraph = DepGraph(g['package_source'], False)
 
-    g['bazel_xml_parser'] = BazelXmlParser(rules_xml=g['bazel_deps_xml'])
+    g['bazel_xml_parser'] = BazelXmlParser(
+        rules_xml=g['bazel_deps_xml'], 
+        maven_repo_alias=maven_repo_alias
+    )
     typer.echo(f"Bazel query output file loaded", file=sys.stderr)
     
     typer.echo("----------------------------", file=sys.stderr)

@@ -13,14 +13,6 @@ logging.basicConfig(format=FORMAT)
 logger.setLevel(logging.INFO)
 #logger.setLevel(logging.DEBUG)
 
-# valid types of packages to process
-package_sources = {
-    "maven": "@maven",
-    "pip": "@py_deps"
-}
-
-BazelPackageSource = Enum('PackageSource', {value:key for key, value in package_sources.items()})
-
 class BazelNodeType(Enum):
     INTERNAL_TARGET = 1
     EXTERNAL_TARGET = 2
@@ -35,18 +27,42 @@ class BazelXmlParser(object):
         self,
         rules_xml: str,
         pkg_manager_name: str = "maven",
+        maven_repo_alias: str = None,
         debug: bool = False,
         bazel_query_output: str = None
     ):
         self.pkg_manager_name = pkg_manager_name
+        self.package_sources = {
+            "maven": ["@maven"],
+            "pip": ["@py_deps"]
+        }
+        if maven_repo_alias:
+            self.package_sources["maven"].append(maven_repo_alias)
+
+        print(f"{self.package_sources=}")
+
         self.rules_xml = rules_xml
         self.rules = ElementTree.fromstring(rules_xml)
         self.dep_cache = []
 
     def get_coordinates_from_bazel_dep(self, bazel_dep, package_source):
         dep_coordinates = bazel_dep
-        logger.debug(f"{package_sources[package_source]=}")
+        logger.debug(f"{self.package_sources[package_source]=}")
         bazel_rules = self.rules
+
+        starts_with_strings = tuple([x + "//" for x in self.package_sources[package_source]])
+
+        package_source_match_re_string = ""
+        for index, x in enumerate(self.package_sources[package_source]):
+            if index==0:
+                package_source_match_re_string = "(" + x + ")"
+            else:
+                package_source_match_re_string += "|(" + x + ")"
+
+            logger.debug(f"{package_source_match_re_string=}")
+
+        re_match_string = fr'^({package_source_match_re_string})_\w+//'
+        logger.debug(f"{re_match_string=}")
 
         for rule in bazel_rules.findall('rule'):
             #logger.debug(f"processing {rule.attrib['name']=}")
@@ -54,8 +70,8 @@ class BazelXmlParser(object):
                     re.match(r".*/BUILD(\.bzl|\.bazel)?\:\d+\:\d+$", rule.attrib['location']) and
                     rule.attrib['name'] == bazel_dep and
                     (
-                        rule.attrib['name'].startswith(f"{package_sources[package_source]}//") or
-                        re.match(fr"^{package_sources[package_source]}_\w+//", rule.attrib['name'])
+                        rule.attrib['name'].startswith(starts_with_strings) or
+                        re.match(fr"{re_match_string}", rule.attrib['name'])
                     )
                     
             ):
@@ -103,11 +119,9 @@ class BazelXmlParser(object):
     
     def get_snyk_dep_from_coordinates(self, dep_coordinates: str, package_source):
         logger.debug(f"{package_source=}")
-        for data in BazelPackageSource:
-            logger.debug(f"checking if {package_source=} matches {data.value=}")
-            if package_source == data.value:
-                func = getattr(self, f"{data.value}_bazel_dep_to_snyk_dep")
-                return func(dep_coordinates)
+        if package_source in self.package_sources:  
+            func = getattr(self, f"{package_source}_bazel_dep_to_snyk_dep")
+            return func(dep_coordinates)
 
 
     def maven_bazel_dep_to_snyk_dep(self, dep_coordinates: str):
@@ -126,8 +140,7 @@ class BazelXmlParser(object):
         return snyk_dep
     
     def get_node_type(self, node_id: str) -> BazelNodeType:
-        #if (node_id.startswith("@maven//:")):
-        if (node_id.startswith(tuple(package_sources.values()))):
+        if (node_id.startswith(tuple(sum(self.package_sources.values(), [])))):
             node_type = BazelNodeType.DEPENDENCY
         elif re.match(r"^\/\/.+\:.+$", node_id):
             node_type = BazelNodeType.INTERNAL_TARGET
