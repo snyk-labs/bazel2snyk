@@ -33,8 +33,12 @@ Options:
                                   bazel_deps.xml]
   --bazel-target TEXT             Name of the target, e.g. //store/api:main
                                   [env var: BAZEL_TARGET]
-  --package-source [maven|pip]    Name of the target, e.g. //store/api:main
+  --package-source TEXT           Name of the target, e.g. //store/api:main
                                   [env var: PACKAGE_SOURCE; default: maven]
+  --maven-repo-alias TEXT         specify if you refer to @maven repository
+                                  with another name, e.g.
+                                  @maven_alternate_repo  [env var:
+                                  MAVEN_REPO_ALIAS]
   --debug / --no-debug            Set log level to debug  [default: no-debug]
   --print-deps / --no-print-deps  Print bazel dependency structure  [default:
                                   no-print-deps]
@@ -97,6 +101,16 @@ exiting with code 1
 poetry run python3 bazel2snyk/cli.py \
     --bazel-deps-xml=bazel_deps.xml \
     --bazel-target=//app/package:target \
+    monitor \
+    --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
+```
+
+### monitor using maven repo alias
+```
+poetry run python3 bazel2snyk/cli.py \
+    --bazel-deps-xml=bazel_deps.xml \
+    --bazel-target=//app/package:target \
+    --maven-repo-alias="@multiversion_maven"
     monitor \
     --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
 ```
