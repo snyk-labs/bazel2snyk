@@ -4,7 +4,7 @@
 
 ## bazel2snyk
 
-convert the third party dependency output from `bazel query` into a snyk depgraph object to be tested or monitored as a project via the API.
+Convert the third party dependency output from `bazel query` into a snyk depgraph object to be tested or monitored as a project via the API.
 
 Bazel [targets](https://docs.bazel.build/versions/main/skylark/lib/Target.html) should be mapped to Snyk projects. 
 
@@ -16,25 +16,31 @@ bazel query "deps(//app/package:target)" --noimplicit_deps --output xml > bazel_
 
 ## Usage
 
-The `bazel query` XML output can then be post processed by this script, which provides for the following commands to be used in a CI workflow.
+The `bazel query` XML output can then be post processed by this script, which provides for the following commands to be used in a CI workflow or local development environment.
 
 | command     | description                                                                                                                           |
 |-------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | print-graph | prints converted Snyk depGraph JSON to STDOUT                                                                                         |
 | test        | tests the depGraph for issues via Snyk API. Returns exit code 1 if issues are found and prints the tests results JSON to SDOUT        |
-| monitor     | submits the depGraph for continuous monitoring via Snyk API. Prints the response JSON to STDOUT including the snapshot URL in snyk.io |
+| monitor     | submits the depGraph for continuous monitoring via Snyk API. Prints the response JSON to STDOUT including the [snapshot](docs/images/b2s_snyk_deps.png) URL in snyk.io |
 
 ```
 Usage: cli.py [OPTIONS] COMMAND [ARGS]...
+
+  Convert Bazel query output to Snyk depGraph for testing and monitoring
 
 Options:
   --bazel-deps-xml TEXT           Path to bazel query XML output file  [env
                                   var:  bazel_deps_xml; default:
                                   bazel_deps.xml]
   --bazel-target TEXT             Name of the target, e.g. //store/api:main
-                                  [env var: BAZEL_TARGET]
-  --package-source [maven|pip]    Name of the target, e.g. //store/api:main
+                                  [env var: BAZEL_TARGET; required]
+  --package-source TEXT           Name of the target, e.g. //store/api:main
                                   [env var: PACKAGE_SOURCE; default: maven]
+  --alt-repo-names TEXT           specify comma-delimitied list if you have
+                                  repos with different names for either @maven
+                                  or @pypi, e.g. @maven_repo_1, @maven_repo_2
+                                  [env var: ALT_REPO_NAMES]
   --debug / --no-debug            Set log level to debug  [default: no-debug]
   --print-deps / --no-print-deps  Print bazel dependency structure  [default:
                                   no-print-deps]
@@ -45,24 +51,36 @@ Options:
   --help                          Show this message and exit.
 
 Commands:
-  monitor
-  print-graph
-  test
+  monitor      Continously retest your Bazel target's OSS dependencies...
+  print-graph  Print the Snyk depGraph representation of the dependency...
+  test         Test your Bazel target's OSS depedencies for security...
   ```
 
 export your SNYK_TOKEN before running the script
 
-### print-graph
+### `print-graph`
 ```
 poetry run python3 bazel2snyk/cli.py \
+    --package-source=maven \
     --bazel-deps-xml=bazel_deps.xml \
     --bazel-target=//app/package:target \
     print-graph
 ```
 
-### test
+### `test` pip project
 ```
 poetry run python3 bazel2snyk/cli.py \
+    --package-source=pip \
+    --bazel-deps-xml=bazel_deps.xml \
+    --bazel-target=//app/package:target \
+    test \
+    --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
+```
+
+### `test` maven project
+```
+poetry run python3 bazel2snyk/cli.py \
+    --package-source=maven \
     --bazel-deps-xml=bazel_deps.xml \
     --bazel-target=//app/package:target \
     test \
@@ -92,11 +110,33 @@ exiting with code 1
 
 ```
 
-### monitor
+### `monitor` pip project
 ```
 poetry run python3 bazel2snyk/cli.py \
+    --package-source=pip \
     --bazel-deps-xml=bazel_deps.xml \
     --bazel-target=//app/package:target \
+    monitor \
+    --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
+```
+
+### `monitor` maven project
+```
+poetry run python3 bazel2snyk/cli.py \
+    --package-source=maven \
+    --bazel-deps-xml=bazel_deps.xml \
+    --bazel-target=//app/package:target \
+    monitor \
+    --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
+```
+
+### `monitor` maven project using alternate repo name
+```
+poetry run python3 bazel2snyk/cli.py \
+    --package-source=maven \
+    --bazel-deps-xml=bazel_deps.xml \
+    --bazel-target=//app/package:target \
+    --alt-repo-names="@multiversion_maven"
     monitor \
     --snyk-org-id=a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513
 ```
@@ -119,13 +159,12 @@ If you encounter a HTTP 500 when performing `test` or `monitor` commands, then t
 What is likely happening is that there are too many vulnerable paths for the system (>100,000), so
 pruning the repeated sub-dependencies will alleviate this.
 
-You may run with --prune all the time to avoid this error.
+You may run with `--prune` all the time to avoid this error.
 
-## Supported package types
+## Currently supported package types
 * maven (tested with rules_jvm_external)
 * python pip (tested with rules_python)
 
 ## Todo
 - Investigate and add support for additional package types
-- Automated test suite
-- Additional error handling/messages
+- Add [semantic versioning and release](https://github.com/python-semantic-release/python-semantic-release) for github

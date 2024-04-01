@@ -1,0 +1,5 @@
+from bazel2snyk import BASE_PATH
+
+FIXTURES_PATH = f"{BASE_PATH}/test/fixtures"
+PIP_FIXTURES_PATH = f"{FIXTURES_PATH}/pip"
+MAVEN_FIXTURES_PATH = f"{FIXTURES_PATH}/maven"

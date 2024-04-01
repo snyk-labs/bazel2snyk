@@ -1,0 +1,740 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<query version="2">
+    <rule class="java_library" location="/Users/scott/repos.d/misc/bazelbuild_examples/java-maven/BUILD:6:13" name="//:java-maven-lib">
+        <string name="name" value="java-maven-lib"/>
+        <list name="tags">
+            <string value="__JAVA_RULES_MIGRATION_DO_NOT_USE_WILL_BREAK__"/>
+        </list>
+        <string name="generator_name" value="java-maven-lib"/>
+        <string name="generator_function" value="java_library"/>
+        <string name="generator_location" value="/Users/scott/repos.d/misc/bazelbuild_examples/java-maven/BUILD:6:13"/>
+        <list name="srcs">
+            <label value="//:src/main/java/com/example/myproject/App.java"/>
+        </list>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_guava"/>
+            <label value="@maven_alt//:io_springfox_springfox_swagger_ui"/>
+        </list>
+        <rule-input name="//:src/main/java/com/example/myproject/App.java"/>
+        <rule-input name="@maven_alt//:com_google_guava_guava"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_swagger_ui"/>
+        <rule-output name="//:libjava-maven-lib.jar"/>
+        <rule-output name="//:libjava-maven-lib-src.jar"/>
+    </rule>
+    <source-file location="/Users/scott/repos.d/misc/bazelbuild_examples/java-maven/src/main/java/com/example/myproject/App.java:1:1" name="//:src/main/java/com/example/myproject/App.java">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:8:11" name="@maven_alt//:aopalliance_aopalliance">
+        <string name="name" value="aopalliance_aopalliance"/>
+        <list name="tags">
+            <string value="maven_coordinates=aopalliance:aopalliance:1.0"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:20:11" name="@maven_alt//:com_fasterxml_classmate">
+        <string name="name" value="com_fasterxml_classmate"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.fasterxml:classmate:1.4.0"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:32:11" name="@maven_alt//:com_google_code_findbugs_jsr305">
+        <string name="name" value="com_google_code_findbugs_jsr305"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.code.findbugs:jsr305:3.0.2"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:44:11" name="@maven_alt//:com_google_errorprone_error_prone_annotations">
+        <string name="name" value="com_google_errorprone_error_prone_annotations"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.errorprone:error_prone_annotations:2.3.2"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:56:11" name="@maven_alt//:com_google_guava_failureaccess">
+        <string name="name" value="com_google_guava_failureaccess"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.guava:failureaccess:1.0.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:68:11" name="@maven_alt//:com_google_guava_guava">
+        <string name="name" value="com_google_guava_guava"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.guava:guava:28.0-jre"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_listenablefuture"/>
+            <label value="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+            <label value="@maven_alt//:com_google_code_findbugs_jsr305"/>
+            <label value="@maven_alt//:org_checkerframework_checker_qual"/>
+            <label value="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+            <label value="@maven_alt//:com_google_guava_failureaccess"/>
+            <label value="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        </list>
+        <rule-input name="@maven_alt//:com_google_code_findbugs_jsr305"/>
+        <rule-input name="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        <rule-input name="@maven_alt//:com_google_guava_failureaccess"/>
+        <rule-input name="@maven_alt//:com_google_guava_listenablefuture"/>
+        <rule-input name="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+        <rule-input name="@maven_alt//:org_checkerframework_checker_qual"/>
+        <rule-input name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:87:11" name="@maven_alt//:com_google_guava_listenablefuture">
+        <string name="name" value="com_google_guava_listenablefuture"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
+        </list>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:98:11" name="@maven_alt//:com_google_j2objc_j2objc_annotations">
+        <string name="name" value="com_google_j2objc_j2objc_annotations"/>
+        <list name="tags">
+            <string value="maven_coordinates=com.google.j2objc:j2objc-annotations:1.3"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:110:11" name="@maven_alt//:commons_logging_commons_logging">
+        <string name="name" value="commons_logging_commons_logging"/>
+        <list name="tags">
+            <string value="maven_coordinates=commons-logging:commons-logging:1.1.3"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:122:11" name="@maven_alt//:io_springfox_springfox_core">
+        <string name="name" value="io_springfox_springfox_core"/>
+        <list name="tags">
+            <string value="maven_coordinates=io.springfox:springfox-core:2.9.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_listenablefuture"/>
+            <label value="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:com_google_code_findbugs_jsr305"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:com_google_guava_guava"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:net_bytebuddy_byte_buddy"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_checkerframework_checker_qual"/>
+            <label value="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+            <label value="@maven_alt//:com_google_guava_failureaccess"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+            <label value="@maven_alt//:com_fasterxml_classmate"/>
+            <label value="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:com_fasterxml_classmate"/>
+        <rule-input name="@maven_alt//:com_google_code_findbugs_jsr305"/>
+        <rule-input name="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        <rule-input name="@maven_alt//:com_google_guava_failureaccess"/>
+        <rule-input name="@maven_alt//:com_google_guava_guava"/>
+        <rule-input name="@maven_alt//:com_google_guava_listenablefuture"/>
+        <rule-input name="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:net_bytebuddy_byte_buddy"/>
+        <rule-input name="@maven_alt//:org_checkerframework_checker_qual"/>
+        <rule-input name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:154:11" name="@maven_alt//:io_springfox_springfox_spi">
+        <string name="name" value="io_springfox_springfox_spi"/>
+        <list name="tags">
+            <string value="maven_coordinates=io.springfox:springfox-spi:2.9.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_listenablefuture"/>
+            <label value="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:com_google_code_findbugs_jsr305"/>
+            <label value="@maven_alt//:io_springfox_springfox_core"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:com_google_guava_guava"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:net_bytebuddy_byte_buddy"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_checkerframework_checker_qual"/>
+            <label value="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+            <label value="@maven_alt//:com_google_guava_failureaccess"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+            <label value="@maven_alt//:com_fasterxml_classmate"/>
+            <label value="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:com_fasterxml_classmate"/>
+        <rule-input name="@maven_alt//:com_google_code_findbugs_jsr305"/>
+        <rule-input name="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        <rule-input name="@maven_alt//:com_google_guava_failureaccess"/>
+        <rule-input name="@maven_alt//:com_google_guava_guava"/>
+        <rule-input name="@maven_alt//:com_google_guava_listenablefuture"/>
+        <rule-input name="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_core"/>
+        <rule-input name="@maven_alt//:net_bytebuddy_byte_buddy"/>
+        <rule-input name="@maven_alt//:org_checkerframework_checker_qual"/>
+        <rule-input name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:187:11" name="@maven_alt//:io_springfox_springfox_spring_web">
+        <string name="name" value="io_springfox_springfox_spring_web"/>
+        <list name="tags">
+            <string value="maven_coordinates=io.springfox:springfox-spring-web:2.9.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_listenablefuture"/>
+            <label value="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:com_google_code_findbugs_jsr305"/>
+            <label value="@maven_alt//:io_springfox_springfox_core"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:com_google_guava_guava"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:net_bytebuddy_byte_buddy"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_checkerframework_checker_qual"/>
+            <label value="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+            <label value="@maven_alt//:io_springfox_springfox_spi"/>
+            <label value="@maven_alt//:com_google_guava_failureaccess"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+            <label value="@maven_alt//:com_fasterxml_classmate"/>
+            <label value="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:com_fasterxml_classmate"/>
+        <rule-input name="@maven_alt//:com_google_code_findbugs_jsr305"/>
+        <rule-input name="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        <rule-input name="@maven_alt//:com_google_guava_failureaccess"/>
+        <rule-input name="@maven_alt//:com_google_guava_guava"/>
+        <rule-input name="@maven_alt//:com_google_guava_listenablefuture"/>
+        <rule-input name="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_core"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_spi"/>
+        <rule-input name="@maven_alt//:net_bytebuddy_byte_buddy"/>
+        <rule-input name="@maven_alt//:org_checkerframework_checker_qual"/>
+        <rule-input name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:221:11" name="@maven_alt//:io_springfox_springfox_swagger_ui">
+        <string name="name" value="io_springfox_springfox_swagger_ui"/>
+        <list name="tags">
+            <string value="maven_coordinates=io.springfox:springfox-swagger-ui:2.9.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:com_google_guava_listenablefuture"/>
+            <label value="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:com_google_code_findbugs_jsr305"/>
+            <label value="@maven_alt//:io_springfox_springfox_core"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:com_google_guava_guava"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:net_bytebuddy_byte_buddy"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_checkerframework_checker_qual"/>
+            <label value="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+            <label value="@maven_alt//:io_springfox_springfox_spi"/>
+            <label value="@maven_alt//:com_google_guava_failureaccess"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+            <label value="@maven_alt//:io_springfox_springfox_spring_web"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+            <label value="@maven_alt//:com_fasterxml_classmate"/>
+            <label value="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:com_fasterxml_classmate"/>
+        <rule-input name="@maven_alt//:com_google_code_findbugs_jsr305"/>
+        <rule-input name="@maven_alt//:com_google_errorprone_error_prone_annotations"/>
+        <rule-input name="@maven_alt//:com_google_guava_failureaccess"/>
+        <rule-input name="@maven_alt//:com_google_guava_guava"/>
+        <rule-input name="@maven_alt//:com_google_guava_listenablefuture"/>
+        <rule-input name="@maven_alt//:com_google_j2objc_j2objc_annotations"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_core"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_spi"/>
+        <rule-input name="@maven_alt//:io_springfox_springfox_spring_web"/>
+        <rule-input name="@maven_alt//:net_bytebuddy_byte_buddy"/>
+        <rule-input name="@maven_alt//:org_checkerframework_checker_qual"/>
+        <rule-input name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_metadata"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:269:11" name="@maven_alt//:net_bytebuddy_byte_buddy">
+        <string name="name" value="net_bytebuddy_byte_buddy"/>
+        <list name="tags">
+            <string value="maven_coordinates=net.bytebuddy:byte-buddy:1.8.12"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:281:11" name="@maven_alt//:org_checkerframework_checker_qual">
+        <string name="name" value="org_checkerframework_checker_qual"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.checkerframework:checker-qual:2.8.1"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:293:11" name="@maven_alt//:org_codehaus_mojo_animal_sniffer_annotations">
+        <string name="name" value="org_codehaus_mojo_animal_sniffer_annotations"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.codehaus.mojo:animal-sniffer-annotations:1.17"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:317:11" name="@maven_alt//:org_slf4j_slf4j_api">
+        <string name="name" value="org_slf4j_slf4j_api"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.slf4j:slf4j-api:1.7.25"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar"/>
+        <list name="deps"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:329:11" name="@maven_alt//:org_springframework_plugin_spring_plugin_core">
+        <string name="name" value="org_springframework_plugin_spring_plugin_core"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:349:11" name="@maven_alt//:org_springframework_plugin_spring_plugin_metadata">
+        <string name="name" value="org_springframework_plugin_spring_plugin_metadata"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_context"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:org_slf4j_slf4j_api"/>
+            <label value="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_slf4j_slf4j_api"/>
+        <rule-input name="@maven_alt//:org_springframework_plugin_spring_plugin_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_context"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:370:11" name="@maven_alt//:org_springframework_spring_aop">
+        <string name="name" value="org_springframework_spring_aop"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework:spring-aop:4.0.9.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:386:11" name="@maven_alt//:org_springframework_spring_beans">
+        <string name="name" value="org_springframework_spring_beans"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework:spring-beans:4.0.9.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+        </list>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:400:11" name="@maven_alt//:org_springframework_spring_context">
+        <string name="name" value="org_springframework_spring_context"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework:spring-context:4.0.9.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:org_springframework_spring_expression"/>
+            <label value="@maven_alt//:aopalliance_aopalliance"/>
+            <label value="@maven_alt//:org_springframework_spring_aop"/>
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+            <label value="@maven_alt//:org_springframework_spring_beans"/>
+        </list>
+        <rule-input name="@maven_alt//:aopalliance_aopalliance"/>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_aop"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_beans"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_expression"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:418:11" name="@maven_alt//:org_springframework_spring_core">
+        <string name="name" value="org_springframework_spring_core"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework:spring-core:4.0.9.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+        </list>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar"/>
+    </rule>
+    <rule class="jvm_import" location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/BUILD:431:11" name="@maven_alt//:org_springframework_spring_expression">
+        <string name="name" value="org_springframework_spring_expression"/>
+        <list name="tags">
+            <string value="maven_coordinates=org.springframework:spring-expression:4.0.9.RELEASE"/>
+        </list>
+        <list name="jars">
+            <label value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar"/>
+        </list>
+        <label name="srcjar" value="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE-sources.jar"/>
+        <list name="deps">
+            <label value="@maven_alt//:commons_logging_commons_logging"/>
+            <label value="@maven_alt//:org_springframework_spring_core"/>
+        </list>
+        <rule-input name="@maven_alt//:commons_logging_commons_logging"/>
+        <rule-input name="@maven_alt//:org_springframework_spring_core"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE-sources.jar"/>
+        <rule-input name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar"/>
+    </rule>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.4.0/classmate-1.4.0.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/guava/28.0-jre/guava-28.0-jre.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-core/2.9.1/springfox-core-2.9.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spi/2.9.1/springfox-spi-2.9.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-spring-web/2.9.1/springfox-spring-web-2.9.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/io/springfox/springfox-swagger-ui/2.9.1/springfox-swagger-ui-2.9.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.8.12/byte-buddy-1.8.12.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE-sources.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE-sources.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+    <source-file location="/private/var/tmp/_bazel_scott/eb433e9f573c1e404bb27a2fcba33efb/external/maven/v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar:1:1" name="@maven_alt//:v1/https/jcenter.bintray.com/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar">
+        <visibility-label name="//visibility:public"/>
+    </source-file>
+</query>
