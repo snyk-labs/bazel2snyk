@@ -48,7 +48,7 @@ pip_args["test"] = [
     "//snyk/scripts/cli:main",
     "test",
     "--snyk-org-id",
-    "a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513",
+    "fa37c43d-b33f-489a-8708-9b84b6e6211b",
 ]
 
 pip_args["monitor"] = [
@@ -61,7 +61,7 @@ pip_args["monitor"] = [
     "//snyk/scripts/cli:main",
     "monitor",
     "--snyk-org-id",
-    "a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513",
+    "fa37c43d-b33f-489a-8708-9b84b6e6211b",
 ]
 
 maven_args = {}
@@ -87,7 +87,7 @@ maven_args["test"] = [
     "//:java-maven-lib",
     "test",
     "--snyk-org-id",
-    "a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513",
+    "fa37c43d-b33f-489a-8708-9b84b6e6211b",
 ]
 
 maven_args["monitor"] = [
@@ -100,5 +100,5 @@ maven_args["monitor"] = [
     "//:java-maven-lib",
     "monitor",
     "--snyk-org-id",
-    "a1f3f68e-99b1-4f3f-bfdb-6ee4b4990513",
+    "fa37c43d-b33f-489a-8708-9b84b6e6211b",
 ]

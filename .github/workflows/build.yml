@@ -1,8 +1,6 @@
 name: Build and Test
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
 jobs:
   pytest:
@@ -20,11 +18,19 @@ jobs:
         run: pip install poetry
 
       - name: Install dependencies
-        run: $HOME/.poetry/bin/poetry install -v
+        run: python -m poetry install -v
         env:
           POETRY_VIRTUALENVS_IN_PROJECT: true
 
+      - name: Cache the virtualenv
+        uses: actions/cache@v2
+        with:
+          path: ./.venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
+          
       - name: Run pytest
         run: |
-          $HOME/.poetry/bin/poetry run pytest -v --ruff --ruff-format
+          python -m poetry run pytest -v --ruff --ruff-format
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   
