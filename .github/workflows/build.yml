@@ -22,7 +22,15 @@ jobs:
         env:
           POETRY_VIRTUALENVS_IN_PROJECT: true
 
+      - name: Cache the virtualenv
+        uses: actions/cache@v2
+        with:
+          path: ./.venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
+          
       - name: Run pytest
         run: |
           python -m poetry run pytest -v --ruff --ruff-format
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   
