@@ -51,7 +51,7 @@ class Bazel2Snyk(object):
         """
         logger.debug(f"{parent_node_id=},{depth=}")
 
-        global visited_temp, bazel_xml_parser
+        # global visited_temp, bazel_xml_parser
         logger.debug(f"{self._visited_temp=}")
 
         children = self.bazel_xml_parser.get_children_from_rule(
@@ -114,7 +114,7 @@ class Bazel2Snyk(object):
             self.dep_graph.add_dep(child_node_id=None, parent_node_id=parent_dep_snyk)
             self._visited.extend(self._visited_temp)
 
-            self.visited_temp = []
+            self._visited_temp = []
 
     def snyk_dep_from_bazel_dep(
         self, bazel_dep_id: str, package_source: BazelPackageSource
