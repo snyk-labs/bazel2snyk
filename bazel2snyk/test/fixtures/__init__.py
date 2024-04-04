@@ -27,6 +27,20 @@ pip_args["bad_args"] = [
     "abcdefg",
 ]
 
+pip_args["bad_target"] = [
+    # "--debug",
+    "--print-deps",
+    "--package-source",
+    "pip",
+    "--bazel-deps-xml",
+    f"{pip_fixtures['pip']}",
+    "--bazel-target",
+    "//snyk/cli:main",
+    "print-graph",
+    "--snyk-org-id",
+    "abcdefg",
+]
+
 pip_args["print_graph"] = [
     # "--debug",
     "--print-deps",

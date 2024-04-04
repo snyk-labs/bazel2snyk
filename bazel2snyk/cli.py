@@ -284,6 +284,12 @@ def main(
 
     bazel2snyk.bazel_to_depgraph(parent_node_id=bazel_target, depth=0)
 
+    if len(bazel2snyk.dep_graph.graph()["depGraph"]["graph"]["nodes"]) <= 1:
+        logger.error(
+            f"No {package_source} dependencies found for given target, please verify --bazel-target exists in the source data"
+        )
+        sys.exit(2)
+
     if prune_all:
         logger.info("Pruning graph ...")
         time.sleep(2)
