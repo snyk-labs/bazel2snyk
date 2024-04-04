@@ -14,6 +14,15 @@ def test_bad_args():
     assert result.exit_code == 2
 
 
+def test_bad_target():
+    """
+    Test for target not found in source
+
+    """
+    result = runner.invoke(cli, pip_args["bad_target"])
+    assert result.exit_code == 2
+
+
 def test_pip_command_print_graph():
     """
     Test for printing the dep graph
