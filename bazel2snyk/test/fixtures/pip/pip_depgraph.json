@@ -1,0 +1,306 @@
+{
+  "depGraph": {
+    "schemaVersion": "1.2.0",
+    "pkgManager": {
+      "name": "pip"
+    },
+    "pkgs": [
+      {
+        "id": "//snyk/scripts/cli:main@bazel",
+        "info": {
+          "name": "//snyk/scripts/cli:main",
+          "version": "bazel"
+        }
+      },
+      {
+        "id": "pysnyk@0.9.3",
+        "info": {
+          "name": "pysnyk",
+          "version": "0.9.3"
+        }
+      },
+      {
+        "id": "deprecation@2.1.0",
+        "info": {
+          "name": "deprecation",
+          "version": "2.1.0"
+        }
+      },
+      {
+        "id": "packaging@21.3",
+        "info": {
+          "name": "packaging",
+          "version": "21.3"
+        }
+      },
+      {
+        "id": "pyparsing@3.0.9",
+        "info": {
+          "name": "pyparsing",
+          "version": "3.0.9"
+        }
+      },
+      {
+        "id": "importlib_metadata@4.13.0",
+        "info": {
+          "name": "importlib_metadata",
+          "version": "4.13.0"
+        }
+      },
+      {
+        "id": "zipp@3.10.0",
+        "info": {
+          "name": "zipp",
+          "version": "3.10.0"
+        }
+      },
+      {
+        "id": "mashumaro@3.1",
+        "info": {
+          "name": "mashumaro",
+          "version": "3.1"
+        }
+      },
+      {
+        "id": "typing_extensions@4.4.0",
+        "info": {
+          "name": "typing_extensions",
+          "version": "4.4.0"
+        }
+      },
+      {
+        "id": "requests@2.28.1",
+        "info": {
+          "name": "requests",
+          "version": "2.28.1"
+        }
+      },
+      {
+        "id": "certifi@2022.9.24",
+        "info": {
+          "name": "certifi",
+          "version": "2022.9.24"
+        }
+      },
+      {
+        "id": "charset_normalizer@2.1.1",
+        "info": {
+          "name": "charset_normalizer",
+          "version": "2.1.1"
+        }
+      },
+      {
+        "id": "idna@3.4",
+        "info": {
+          "name": "idna",
+          "version": "3.4"
+        }
+      },
+      {
+        "id": "urllib3@1.26.12",
+        "info": {
+          "name": "urllib3",
+          "version": "1.26.12"
+        }
+      },
+      {
+        "id": "retry@0.9.2",
+        "info": {
+          "name": "retry",
+          "version": "0.9.2"
+        }
+      },
+      {
+        "id": "decorator@5.1.1",
+        "info": {
+          "name": "decorator",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "id": "py@1.11.0",
+        "info": {
+          "name": "py",
+          "version": "1.11.0"
+        }
+      },
+      {
+        "id": "typer@0.4.1",
+        "info": {
+          "name": "typer",
+          "version": "0.4.1"
+        }
+      },
+      {
+        "id": "click@8.1.3",
+        "info": {
+          "name": "click",
+          "version": "8.1.3"
+        }
+      }
+    ],
+    "graph": {
+      "rootNodeId": "//snyk/scripts/cli:main@bazel",
+      "nodes": [
+        {
+          "nodeId": "//snyk/scripts/cli:main@bazel",
+          "pkgId": "//snyk/scripts/cli:main@bazel",
+          "deps": [
+            {
+              "nodeId": "pysnyk@0.9.3"
+            },
+            {
+              "nodeId": "typer@0.4.1"
+            }
+          ]
+        },
+        {
+          "nodeId": "pysnyk@0.9.3",
+          "pkgId": "pysnyk@0.9.3",
+          "deps": [
+            {
+              "nodeId": "deprecation@2.1.0"
+            },
+            {
+              "nodeId": "importlib_metadata@4.13.0"
+            },
+            {
+              "nodeId": "mashumaro@3.1"
+            },
+            {
+              "nodeId": "requests@2.28.1"
+            },
+            {
+              "nodeId": "retry@0.9.2"
+            }
+          ]
+        },
+        {
+          "nodeId": "deprecation@2.1.0",
+          "pkgId": "deprecation@2.1.0",
+          "deps": [
+            {
+              "nodeId": "packaging@21.3"
+            }
+          ]
+        },
+        {
+          "nodeId": "packaging@21.3",
+          "pkgId": "packaging@21.3",
+          "deps": [
+            {
+              "nodeId": "pyparsing@3.0.9"
+            }
+          ]
+        },
+        {
+          "nodeId": "pyparsing@3.0.9",
+          "pkgId": "pyparsing@3.0.9",
+          "deps": []
+        },
+        {
+          "nodeId": "importlib_metadata@4.13.0",
+          "pkgId": "importlib_metadata@4.13.0",
+          "deps": [
+            {
+              "nodeId": "zipp@3.10.0"
+            }
+          ]
+        },
+        {
+          "nodeId": "zipp@3.10.0",
+          "pkgId": "zipp@3.10.0",
+          "deps": []
+        },
+        {
+          "nodeId": "mashumaro@3.1",
+          "pkgId": "mashumaro@3.1",
+          "deps": [
+            {
+              "nodeId": "typing_extensions@4.4.0"
+            }
+          ]
+        },
+        {
+          "nodeId": "typing_extensions@4.4.0",
+          "pkgId": "typing_extensions@4.4.0",
+          "deps": []
+        },
+        {
+          "nodeId": "requests@2.28.1",
+          "pkgId": "requests@2.28.1",
+          "deps": [
+            {
+              "nodeId": "certifi@2022.9.24"
+            },
+            {
+              "nodeId": "charset_normalizer@2.1.1"
+            },
+            {
+              "nodeId": "idna@3.4"
+            },
+            {
+              "nodeId": "urllib3@1.26.12"
+            }
+          ]
+        },
+        {
+          "nodeId": "certifi@2022.9.24",
+          "pkgId": "certifi@2022.9.24",
+          "deps": []
+        },
+        {
+          "nodeId": "charset_normalizer@2.1.1",
+          "pkgId": "charset_normalizer@2.1.1",
+          "deps": []
+        },
+        {
+          "nodeId": "idna@3.4",
+          "pkgId": "idna@3.4",
+          "deps": []
+        },
+        {
+          "nodeId": "urllib3@1.26.12",
+          "pkgId": "urllib3@1.26.12",
+          "deps": []
+        },
+        {
+          "nodeId": "retry@0.9.2",
+          "pkgId": "retry@0.9.2",
+          "deps": [
+            {
+              "nodeId": "decorator@5.1.1"
+            },
+            {
+              "nodeId": "py@1.11.0"
+            }
+          ]
+        },
+        {
+          "nodeId": "decorator@5.1.1",
+          "pkgId": "decorator@5.1.1",
+          "deps": []
+        },
+        {
+          "nodeId": "py@1.11.0",
+          "pkgId": "py@1.11.0",
+          "deps": []
+        },
+        {
+          "nodeId": "typer@0.4.1",
+          "pkgId": "typer@0.4.1",
+          "deps": [
+            {
+              "nodeId": "click@8.1.3"
+            }
+          ]
+        },
+        {
+          "nodeId": "click@8.1.3",
+          "pkgId": "click@8.1.3",
+          "deps": []
+        }
+      ]
+    }
+  }
+}

@@ -155,11 +155,14 @@ Monitoring depGraph via Snyk API ...
 ```
 
 ### Pruning
-If you encounter a HTTP 500 when performing `test` or `monitor` commands, then try to enable pruning.  
+If you encounter a HTTP 422 when performing `test` or `monitor` commands, with the accompaying error message:
+`Retrying: {"error":"Failed to generate snapshot. Please contact support on support@snyk.io"}`
+ then try to enable pruning.  
+
 What is likely happening is that there are too many vulnerable paths for the system (>100,000), so
 pruning the repeated sub-dependencies will alleviate this.
 
-You may run with `--prune` all the time to avoid this error.
+You may run with `--prune` or `--prune-all` to avoid this error.
 
 ## Currently supported package types
 * maven (tested with rules_jvm_external)
