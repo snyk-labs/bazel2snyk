@@ -62,7 +62,7 @@ class BazelXmlParser(object):
         logger.debug(f"{re_match_string=}")
 
         for rule in bazel_rules.findall("rule"):
-            logger.debug(f"processing {rule.attrib['name']=}")
+            # logger.debug(f"processing {rule.attrib['name']=}")
             if (
                 re.match(
                     r".*/BUILD(\.bzl|\.bazel)?\:\d+\:\d+$", rule.attrib["location"]
@@ -133,15 +133,16 @@ class BazelXmlParser(object):
     def pip_bazel_dep_to_snyk_dep(self, dep_coordinates: str):
         snyk_dep = dep_coordinates
         logger.debug(f"PYTHON TEST: {snyk_dep=}")
-        # match = re.search(r"\@.*\/\/pypi__.*\:(.*).dist\-info.*\/", dep_coordinates)
         match = re.search(
             r"\@.*_.*\:site-packages\/(.*).dist\-info.*\/.*", dep_coordinates
         )
+        if not match:
+            match = re.search(r"\@.*\/\/pypi__.*\:(.*).dist\-info.*\/", dep_coordinates)
         if match:
             snyk_dep = match.group(1)
             k = snyk_dep.rfind("-")
             snyk_dep = snyk_dep[:k] + "@" + snyk_dep[k + 1 :]
-            logger.debug(f"PYTHON TEST: {snyk_dep=}")
+            logger.debug(f"{snyk_dep=}")
 
         return snyk_dep
 

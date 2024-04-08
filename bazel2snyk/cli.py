@@ -1,6 +1,5 @@
 import requests
 import typer
-import math
 import time
 import sys
 import traceback
@@ -42,16 +41,13 @@ class Bazel2Snyk(object):
         self.dep_graph = dep_graph
         self._visited = []
         self._visited_temp = []
-        self._dep_path_counts = {}
-        self._target_path_counts = {}
+        self._oss_deps_count = 0
 
     def bazel_to_depgraph(self, parent_node_id: str, depth: int):
         """
         Recursive function that will walk the bazel dep tree.
         """
         logger.debug(f"{parent_node_id=},{depth=}")
-
-        # global visited_temp, bazel_xml_parser
         logger.debug(f"{self._visited_temp=}")
 
         children = self.bazel_xml_parser.get_children_from_rule(
@@ -63,9 +59,15 @@ class Bazel2Snyk(object):
             parent_node_id, self.bazel_xml_parser.pkg_manager_name
         )
 
+        if parent_dep_snyk != parent_node_id and not parent_dep_snyk.endswith(
+            f"{BAZEL_TARGET_VERSION_STRING}"
+        ):
+            self._oss_deps_count += 1
+            logger.debug(f"{self._oss_deps_count=}")
+
         # special entry for the root node of the dep graph
         if depth == 0:
-            self.dep_graph.set_root_node_package(f"{parent_dep_snyk}")
+            self.dep_graph.set_root_node_package(parent_dep_snyk)
 
         for child in children:
             child_dep_for_snyk = self.snyk_dep_from_bazel_dep(
@@ -87,16 +89,6 @@ class Bazel2Snyk(object):
             logger.debug(f"adding pkg {child_dep_for_snyk=}")
             self.dep_graph.add_pkg(child_dep_for_snyk)
 
-            # keep track of how many times each dep is encountered
-            if self.bazel_xml_parser.get_node_type(child) in [BazelNodeType.DEPENDENCY]:
-                self.increment_dep_path_count(child_dep_for_snyk)
-
-            elif self.bazel_xml_parser.get_node_type(child) in [
-                BazelNodeType.INTERNAL_TARGET,
-                BazelNodeType.EXTERNAL_TARGET,
-            ]:
-                self.increment_target_path_count(child_dep_for_snyk)
-
             logger.debug(f"adding dep {child_dep_for_snyk=} for {parent_dep_snyk=}")
             self.dep_graph.add_dep(child_dep_for_snyk, parent_dep_snyk)
 
@@ -104,6 +96,7 @@ class Bazel2Snyk(object):
 
             # if we've already processed this subtree, then just return
             if child not in self._visited:
+                logger.debug(f"{child} not yet visited, traversing...")
                 self.bazel_to_depgraph(child, depth=depth + 1)
         # else:
         # future use for smarter pruning
@@ -136,62 +129,6 @@ class Bazel2Snyk(object):
             return snyk_dep
         else:
             return f"{bazel_dep_id}@{BAZEL_TARGET_VERSION_STRING}"
-
-    def increment_dep_path_count(self, dep: str):
-        """
-        Increment global dep path counts which is later
-        used if the dep graph needs to be pruned
-        """
-        self._dep_path_counts[dep] = self._dep_path_counts.get(dep, 0) + 1
-
-    def increment_target_path_count(self, dep: str):
-        """
-        Increment global target path counts which is later
-        used if the dep graph needs to be pruned
-        """
-        self._target_path_counts[dep] = self._target_path_counts.get(dep, 0) + 1
-
-    def prune_graph_all(self):
-        """
-        Prune graph whenever OSS dependencies are repeated more than 2x
-        or when bazel target dependencies are repeated more than 10x
-        """
-        for dep, instances in self.dep_path_counts.items():
-            if instances > 2:
-                logger.info(f"pruning {dep} ({instances=})")
-                self.dep_graph.prune_dep(dep)
-
-        for dep, instances in self.target_path_counts.items():
-            if instances > 10:
-                logger.info(f"pruning {dep} ({instances=})")
-                self.dep_graph.prune_dep(dep)
-
-    def prune_graph(
-        self, instance_count_threshold: int, instance_percentage_threshold: int
-    ):
-        """
-        Prune graph according to threshold of duplicated transitive dependencies
-        """
-        self._dep_path_counts.update(self._target_path_counts)
-        combined_path_counts = self._dep_path_counts
-
-        total_item_count = 0
-
-        for dep, instances in combined_path_counts.items():
-            total_item_count += instances
-        logger.debug(f"{total_item_count=}")
-
-        for dep, instances in combined_path_counts.items():
-            if instances > 1:
-                instance_percentage = math.ceil((instances / total_item_count) * 100)
-                if (
-                    instances > instance_count_threshold
-                    or instance_percentage > instance_percentage_threshold
-                ):
-                    logger.info(
-                        f"pruning {dep} ({instances=}/{instance_count_threshold},{instance_percentage=}/{instance_percentage_threshold})"
-                    )
-                    self.dep_graph.prune_dep(dep)
 
 
 def load_file(file_path: str) -> str:
@@ -284,7 +221,7 @@ def main(
 
     bazel2snyk.bazel_to_depgraph(parent_node_id=bazel_target, depth=0)
 
-    if len(bazel2snyk.dep_graph.graph()["depGraph"]["graph"]["nodes"]) <= 1:
+    if len(bazel2snyk.dep_graph.graph().depGraph.graph.nodes) <= 1:
         logger.error(
             f"No {package_source} dependencies found for given target, please verify --bazel-target exists in the source data"
         )
@@ -293,11 +230,13 @@ def main(
     if prune_all:
         logger.info("Pruning graph ...")
         time.sleep(2)
-        bazel2snyk.prune_graph_all()
+        # bazel2snyk.prune_graph_all()
+        bazel2snyk.dep_graph.prune_graph_all()
     elif prune:
         time.sleep(2)
         logger.info("Smart pruning graph (experimental) ...")
-        bazel2snyk.prune_graph(20, 5)
+        # bazel2snyk.prune_graph(20, 5)
+        bazel2snyk.dep_graph.prune_graph(20, 5)
     return
 
 
@@ -306,7 +245,9 @@ def print_graph():
     """
     Print the Snyk depGraph representation of the dependency graph
     """
-    print(f"{json.dumps(bazel2snyk.dep_graph.graph(), indent=4)}")
+    # print(f"{json.dumps(bazel2snyk.dep_graph.graph(), indent=4)}")
+    # print({bazel2snyk.dep_graph.graph().model_dump_json(indent=4)})
+    print(json.dumps(bazel2snyk.dep_graph.graph().model_dump(), indent=4))
 
 
 @cli.command()
@@ -329,7 +270,8 @@ def test(
 
         typer.echo("Testing depGraph via Snyk API ...", file=sys.stderr)
         response: requests.Response = snyk_client.post(
-            f"{DEPGRAPH_BASE_TEST_URL}{snyk_org_id}", body=bazel2snyk.dep_graph.graph()
+            f"{DEPGRAPH_BASE_TEST_URL}{snyk_org_id}",
+            body=bazel2snyk.dep_graph.graph().model_dump(),
         )
 
         json_response = response.json()
@@ -372,7 +314,8 @@ def monitor(
 
     typer.echo("Monitoring depGraph via Snyk API ...", file=sys.stderr)
     response: requests.Response = snyk_client.post(
-        f"{DEPGRAPH_BASE_MONITOR_URL}{snyk_org_id}", body=bazel2snyk.dep_graph.graph()
+        f"{DEPGRAPH_BASE_MONITOR_URL}{snyk_org_id}",
+        body=bazel2snyk.dep_graph.graph().model_dump(),
     )
 
     json_response = response.json()
