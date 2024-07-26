@@ -5,14 +5,17 @@ on:
 jobs:
   pytest:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["3.9", "3.10"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python 3.9
+      - name: Set up Python ${{ matrix.version }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.version }}
 
       - name: Install Poetry
         run: pip install poetry
